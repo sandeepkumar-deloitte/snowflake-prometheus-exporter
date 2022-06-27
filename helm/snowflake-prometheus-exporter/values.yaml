@@ -6,7 +6,9 @@ snowflake:
     metrics:
       - name: test_metric
         help: A test metric
-        statement: SELECT COUNT(*) FROM snowflake_sample_data.weather.daily_14_total
+        statements:
+        - USE ROLE accountadmin
+        - SELECT COUNT(*) FROM CDP_ADMIN_5_0.CTRL.ETL_CONFIG_VALUES
 
 image:
   repository: cbellew/snowflake-prometheus-exporter
